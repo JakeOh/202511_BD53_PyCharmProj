@@ -33,11 +33,20 @@ def select_by_deptno(deptno):
 
 def select_by_dname(name):
     """dept_ex 테이블에서 dname 컬럼의 값이 아규먼트 name 문자열을 포함하는 레코드들을 검색."""
-    pass
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            try:
+                sql = 'select * from dept_ex where upper(dname) like upper(:dept_name)'
+                keyword = f'%{name}%'
+                cursor.execute(sql, dept_name=keyword)
+                for row in cursor:
+                    print(row)
+            except DatabaseError as e:
+                print(e)
 
 
 if __name__ == '__main__':
     # select_all()
     # dno = int(input('부서 번호 입력>> '))
     # select_by_deptno(dno)
-    select_by_dname('acc')
+    select_by_dname('o')
