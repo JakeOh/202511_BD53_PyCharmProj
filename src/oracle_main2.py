@@ -3,7 +3,7 @@ import oracledb
 
 if __name__ == '__main__':
     user = 'scott'  # Oracle DB 접속 계정
-    pw= 'tiger'  # Oracle DB 접속 비밀번호
+    pw = 'tiger'  # Oracle DB 접속 비밀번호
     dsn = 'localhost/xe'  # Oracle DB 서버 이름, SID
     port = 1521  # Oracle DB 서버 포트 번호
 
