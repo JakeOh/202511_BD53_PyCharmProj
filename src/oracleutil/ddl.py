@@ -16,8 +16,16 @@ def create_table():
 
 
 def drop_table():
-    pass
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            try:
+                sql = 'drop table dept_ex'
+                cursor.execute(sql)
+                print('테이블 dept_ex 삭제 성공')
+            except DatabaseError as e:
+                print(e)
 
 
 if __name__ == '__main__':
+    drop_table()
     create_table()
