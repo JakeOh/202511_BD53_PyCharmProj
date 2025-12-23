@@ -11,6 +11,7 @@ def input_integer(msg):
 
 
 def show_main_menu():
+    print()
     print('[0]종료 [1]테이블 생성 [2]테이블 삭제 [3]전체검색')
     menu = input_integer('메뉴 선택>> ')
     return menu
@@ -23,9 +24,9 @@ def main():
         if menu == 0:
             run = False
         elif menu == 1:
-            print('TODO 테이블 생성 기능')
+            orautil.create_table()  # dept_ex 테이블 생성
         elif menu == 2:
-            print('TODO 테이블 삭제 기능')
+            orautil.drop_table()  # dept_ex 테이블 삭제
         elif menu == 3:
             print('TODO 전체 검색')
         else:
